@@ -1,10 +1,10 @@
 FROM java:8
 
-MAINTAINER itzg
+MAINTAINER tspringst33n
 
 ENV APT_GET_UPDATE 2016-04-23
 RUN apt-get update
-
+#On the AMAZON Images, there is an issue with the apt-get command
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   imagemagick \
   lsof \
@@ -38,5 +38,5 @@ ENTRYPOINT [ "/start" ]
 ENV UID=1000 GID=1000 \
     MOTD="A Minecraft Server Powered by Docker" \
     JVM_OPTS="-Xmx1024M -Xms1024M" \
-    TYPE=VANILLA VERSION=LATEST FORGEVERSION=RECOMMENDED LEVEL=world PVP=true DIFFICULTY=easy \
-    LEVEL_TYPE=DEFAULT GENERATOR_SETTINGS= WORLD= MODPACK= ONLINE_MODE=TRUE
+    TYPE=SPIGOT VERSION=LATEST LEVEL=world PVP=true DIFFICULTY=easy \
+    LEVEL_TYPE=DEFAULT GENERATOR_SETTINGS= WORLD= ONLINE_MODE=TRUE
